@@ -7,9 +7,8 @@ def get_city_names(filename: str) -> list:
     :param filename: имя файла
     """
     names = []
-    f = open(filename)
-    file = json.load(f)
+    with open(filename) as file:
+        file = json.load(file)
     for city in file:
         names.append(city.get('name'))
-    f.close()
     return names
